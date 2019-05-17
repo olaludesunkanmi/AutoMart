@@ -19,8 +19,6 @@
         margin-left: 10%;
     }
 
-    .plan-price { font-size: 250%; }
-
     .contact-form { width: 80%; }
 }
 
@@ -68,6 +66,8 @@
 
 /* Small phones: from 0 to 480px */
 @media only screen and (max-width: 480px) {
+    h1 { font-size: 140%; }
+    h2 { font-size: 120%; }
     section { padding: 25px 0;}
     .contact-form { width: 100%; }
     .search-row {
@@ -76,4 +76,39 @@
     }
 }
 
+/* Very small phones: from 0 to 345px */
+@media only screen and (max-width: 345px) {
+    #mini-nav {
+        display: block;
+        margin-left: auto;
+    }
+    .nav-links, .dropdown {
+        display: none;
+    }
+    .dropdown img {
+        height: 30px;
+    }
+    .dropdown-content {
+      min-width: 120px;
+    }
+    h1 { font-size: 100%; }
+    h2 { font-size: 80%; }
+    section { padding: 25px 0;}
+    .contact-form { width: 100%; }
+    .search-row {
+        width: 95%;
+        margin: 0 auto;
+    }
+}
 
+/* Very small phones: from 0 to 160px */
+@media only screen and (max-width: 160px) {
+    h1 { font-size: 90%; }
+    h2 { font-size: 80%; }
+    .dropdown img {
+        height: 25px;
+    }
+    .dropdown-content {
+      min-width: 100px;
+    }
+}
