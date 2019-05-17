@@ -211,6 +211,50 @@ h2:after {
     border-bottom: 2px solid #e67e22;
 }
 
+/*----------------------------*/
+/* DROPDOWN */
+/*---------------------------*/
+
+#mini-nav {
+    display: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline;
+    margin-right: 15px;
+  }
+
+  .dropdown img {
+      border-radius: 10px;
+      height: 35px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #555;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 1px;
+  }
+  
+  .dropdown-content a {
+    color: #ffffff;
+    padding: 7px 9px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+      background-color: #f1f1f1;
+      color: black;
+    }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
 
 /*----------------------------*/
@@ -227,6 +271,12 @@ h2:after {
     width: 30%;
     text-align: center;
     height: 300px;
+}
+
+.span-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .search-inputs span {
@@ -252,7 +302,7 @@ input[type=submit] {
     text-decoration: none;
     /* border-radius: 200px; */
     transition: background-color 0.2s, border 0.2s, color 0.2s;
-    width:90%;
+    width:100%;
 }
 
 input[type=submit] {
@@ -269,6 +319,41 @@ input[type=submit]:hover,
 
 input[type=submit] {
     border: 1px solid #e67e22;
+}
+
+/*----------------------------*/
+/* BUTTONS */
+/*---------------------------*/
+
+.ad-caption {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    margin-left: auto;
+}
+
+.btn {
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    color: #fff;
+}
+
+.btn-ghost:link,
+ .btn-ghost:visited {
+    border: 1px solid #e67e22;
+    color: #e67e22;
+}
+
+.btn:hover,
+ .btn:active {
+    background-color: #cf6d17;
 }
 
 /*----------------------------*/
@@ -319,9 +404,6 @@ textarea {
     margin-top: 30px;
     font-size: 200%;
 }
-/* .show-car p {
-    margin-bottom: 20px;
-} */
 
 /*----------------------------*/
 /* CITIES */
@@ -332,11 +414,6 @@ textarea {
     height: 200px;
     margin-bottom: 15px;
 }
-
-/* .city-feature {
-    margin-bottom: 5px;
-} */
-
 
 /*----------------------------*/
 /* CARS PAGE */
@@ -354,16 +431,26 @@ textarea {
 
 .order-btn {
     display: flex;
+    width: 100%;
 }
 
-.order-btn a {
-    width: 50%;
+.order-btn  a {
+    width: 45%;
+}
+
+.order-btn  input[type="submit"] {
+    width: 100%;
+}
+
+.order-btn  #right-float {
+    margin-left: auto;
 }
 
 .safety-box {
     width: 45%;
     margin: 0 auto;
 }
+
 
 /*----------------------------*/
 /* UPDATE ORDER PAGE */
@@ -387,6 +474,92 @@ textarea {
 .order-container input[type=submit] {
     width: 100%;
 }
+
+/*----------------------------*/
+/* MODAL STYLE */
+/*---------------------------*/
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 25%;
+    top: 25%;
+    width: 60%; 
+    height: 65%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+    border-radius: 15px;
+  }
+    
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #EFE9E7;
+    margin: 10px auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 15px;
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-500px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+  }
+  
+  .modal-body {
+      padding: 2px 16px;
+    }
+
+.modal-body h2 {
+    color: black;
+    text-align: center;
+}
+
+.modal-body .contact-form input[type=submit] {
+    width: 100%;
+}
+  
+  .modal-footer {
+    padding: 2px 16px;
+    color: white;
+  }
 
 
 /*----------------------------*/
