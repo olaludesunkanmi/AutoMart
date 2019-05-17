@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AutoMart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style1.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/queries.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="home.html"><h1 class="logo">Auto Mart</h1></a>
+            <ul class="nav-links">
+                <li><a href="postad.html">Post Ad</a></li>
+                <li><a href="vehicles.html">Vehicles</a></li>
+                <li><a href="updateorder.html">My Order</a></li>
+            </ul>
+            <ul class="logout">
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="search-vehicles">
+        <div class="search-row">
+            <h3>Search Vehicles</h3>
+            <div class="search-inputs">
+                <input type="radio" name="news" id="news" checked><span>All</span>
+                <input type="radio" name="news" id="news" checked><span>New</span>
+                <input type="radio" name="news" id="news" checked><span>Used</span>
+            </div>
+             <div class="search-inputs">
+                <select name="make" id="make">
+                    <option value="make" selected>Make</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="Benz">Mercedez Benz</option>
+                    <option value="bmw">BMW</option>
+                </select>
+            </div>
+            <div class="search-inputs">
+                <select name="type" id="type">
+                    <option value="type" selected>Type</option>
+                    <option value="suv">SUV</option>
+                    <option value="Van">Van</option>
+                    <option value="car">Car</option>
+                </select>
+            </div>
+            <div class="search-inputs">
+                <select name="price" id="price">
+                    <option value="price-range" selected>Price Range</option>
+                    <option value="100$">50-100$</option>
+                    <option value="200$">101-200$</option>
+                    <option value="300$">200-300$</option>
+                </select>
+            </div>
+            <div class="search-inputs">
+                <input type="submit" value="Search">
+            </div>
+        </div>
+        <div class="show-car">
+            <h1>Buy cars from the most trustworthy dealers</h1>
+            <p>Search any car you want, we've got you covered</p>
+        </div>
+    </section>
+    <section class="showcase">
+        <div class="row">
+            <h2>Trending Ads</h2>
+        </div>
+        <div class="row">
+            <div class="col span-1-of-4 box">
+                <a href="cars.html"><img src="img/car1.jpg" alt="car 1"></a>
+                <h3>Price: 100$</h3>
+            </div>
+            <div class="col span-1-of-4 box">
+                <img src="img/car2.jpg" alt="car 2">
+                <h3>Price: 300$</h3>
+            </div>
+            <div class="col span-1-of-4 box">
+                <img src="img/car3.jpg" alt="car 3">
+                <h3>Price: 250$</h3>
+            </div>
+            <div class="col span-1-of-4 box">
+                <img src="img/car4.jpg" alt="car 4">
+                <h3>Price: 150$</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col span-1-of-4 box">
+                <img src="img/car5.jpg" alt="car 5">
+                <h3>Price: 120$</h3>
+            </div>
+            <div class="col span-1-of-4 box">
+                <img src="img/car6.jpg" alt="car 6">
+                <h3>Price: 280$</h3>
+            </div>
+            <div class="col span-1-of-4 box">
+                <img src="img/car7.jpg" alt="car 7">
+                <h3>Price: 350$</h3>
+            </div>
+            <div class="col span-1-of-4 box">
+                <img src="img/car8.jpg" alt="car 8">
+                <h3>Price: 400$</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="row">
+            <div class="col span-1-of-2">
+                <ul class="footer-nav">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">How it works</a></li>
+                </ul>
+            </div>
+            <div class="col span-1-of-2">
+                <ul class="social-links">
+                    <li><a href="#"></a><i class="fa fa-facebook"></i></li>
+                    <li><a href="#"></a><i class="fa fa-twitter"></i></li>
+                    <li><a href="#"></a><i class="fa fa-instagram"></i></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <p>
+                Copyright &copy; 2019 by Nelsunky. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

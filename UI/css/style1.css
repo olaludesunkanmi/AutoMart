@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/*----------------------------*/
+/* BASIC SETUP */
+/*---------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+html,
+body {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+.clearfix {zoom: 1}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+h1 {
+    color: #fff;
+    font-size: 120%;
+    margin-left: 15px;
+}
+
+h2 {
+    font-size: 100%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h2:after {
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+
+/*----------------------------*/
+/*REUSABLE COMPONENTS*/
+/*---------------------------*/
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* section {
+    padding: 80px 0;
+} */
+
+.box {
+    padding: 1%;
+}
+
+/*----------------------------*/
+/* GRID COLUMN SETUP */
+/*---------------------------*/
+
+.span-2-of-2 {
+	width: 100%;
+}
+
+.span-1-of-2 {
+	width: 49.2%;
+}
+
+.span-1-of-3 {
+	width: 32.26%; 
+}
+
+.span-2-of-3 {
+	width: 66.13%; 
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span-3-of-3 {
+		width: 100%; 
+	}
+	.span-2-of-3 {
+		width: 100%; 
+	}
+	.span-1-of-3 {
+		width: 100%;
+	}
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span-2-of-2 {
+		width: 100%; 
+	}
+	.span-1-of-2 {
+		width: 100%; 
+	}
+}
+
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+
+.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+
+/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.col { 
+		/*margin: 1% 0 1% 0%;*/
+        margin: 0;
+	}
+}
+.span-1-of-4 {
+	width: 23.8%; 
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span-4-of-4 {
+		width: 100%; 
+	}
+	.span-3-of-4 {
+		width: 100%; 
+	}
+	.span-2-of-4 {
+		width: 100%; 
+	}
+	.span-1-of-4 {
+		width: 100%; 
+	}
+}
+
+
+/*----------------------------*/
+/* HEADER */
+/*---------------------------*/
+
+.main-nav {
+    position: sticky;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    background: #333;
+  }
+
+.nav-links {
+    display: flex;
+    margin: auto;
+}
+
+.nav-links li {
+    list-style-type: none;
+    margin-right: 20px;
+    align-items: center;
+}
+
+.logout li {
+    list-style-type: none;
+    margin-right: 15px;
+}
+
+.main-nav li a:link,
+ .main-nav li a:visited {
+    /* padding: 8px 0; */
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid #e67e22;
+}
+
+
+
+/*----------------------------*/
+/* SEARCH */
+/*---------------------------*/
+
+.search-vehicles {
+    display: flex;
+}
+
+.search-row {
+    border: 1px solid #555;
+    margin: 0 0 0 10px;
+    width: 30%;
+    text-align: center;
+    height: 300px;
+}
+
+.search-inputs span {
+    margin-right: 40px;
+}
+
+.search-inputs {
+    margin-bottom: 7px;
+}
+
+select {
+    width: 90%;
+    padding: 7px;
+    height: 40px;
+    /* border-radius: 3px; */
+    border: 1px solid #ccc;
+}
+
+input[type=submit] {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    /* border-radius: 200px; */
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    width:90%;
+}
+
+input[type=submit] {
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    color: #fff;
+    /* margin-right: 15px; */
+}
+
+input[type=submit]:hover,
+ input[type=submit]:active {
+    background-color: #cf6d17;
+}
+
+input[type=submit] {
+    border: 1px solid #e67e22;
+}
+
+/*----------------------------*/
+/* FORM */
+/*---------------------------*/
+
+.section-form {
+    padding: 80px 0;
+}
+
+.contact-form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+input[type=text],
+input[type=email],
+textarea,
+select {
+    width: 100%;
+    padding: 7px;
+    height: 40px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    height: 80px;
+}
+
+
+*:focus {outline: none;}
+
+
+
+.show-car {
+    background-image: url(../img/car5.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 68.5%;
+    height: 300px;
+    margin: 0 10px 0 0;
+    text-align: center;
+    color: #ffffff;
+}
+
+.show-car h1 {
+    margin-top: 30px;
+    font-size: 200%;
+}
+/* .show-car p {
+    margin-bottom: 20px;
+} */
+
+/*----------------------------*/
+/* CITIES */
+/*---------------------------*/
+
+.box img {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+/* .city-feature {
+    margin-bottom: 5px;
+} */
+
+
+/*----------------------------*/
+/* CARS PAGE */
+/*---------------------------*/
+
+.cars-container {
+    display: flex;
+    margin: 10px;
+}
+
+.card img {
+    width: 100%;
+    height: 400px;
+}
+
+.order-btn {
+    display: flex;
+}
+
+.order-btn a {
+    width: 50%;
+}
+
+.safety-box {
+    width: 45%;
+    margin: 0 auto;
+}
+
+/*----------------------------*/
+/* UPDATE ORDER PAGE */
+/*---------------------------*/
+
+.order-section {
+    margin: 20px auto;
+    width: 60%;
+    border: 1px solid #555;
+}
+
+.order-container {
+    display: flex;
+}
+
+.order-container div {
+    width: 50%;
+    padding: 10px;
+}
+
+.order-container input[type=submit] {
+    width: 100%;
+}
+
+
+/*----------------------------*/
+/* FOOTER */
+/*---------------------------*/
+
+footer {
+    background-color: #333;
+    padding: 50px;
+    font-size: 80%;
+    margin-top: 800px;
+}
+
+.footer-nav {
+    list-style: none;
+    float: left;
+}
+
+.social-links {
+    list-style: none;
+    float: right
+}
+
+.footer-nav li,
+.social-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer-nav li:last-child,
+.social-links li:last-child {
+    margin-right: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links li a:link,
+.social-links li a:visited {
+    text-decoration: none;
+    border: 0;
+    color: #888;
+    transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: #ddd;
+} 
+
+.social-links li a:link,
+.social-links li a:visited {
+    font-size: 160%;
+}
+
+.fa-facebook,
+.fa-twitter,
+.fa-instagram {
+    transition: color 0.2s;
+}
+
+.fa-facebook:hover {
+    color: #3b5998;
+}
+
+.fa-twitter:hover {
+    color: #00aced;
+}
+
+.fa-instagram:hover {
+    color: #517fa4;
+}
+
+footer p {
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
