@@ -1,0 +1,79 @@
+/* Big tablet to 1200px (width smaller than the 1140px row) */
+@media only screen and (max-width: 1200px) {
+    .car-text-box {
+        width: 100%;
+        padding: 0 2%;
+    }
+
+    .row { padding: 0 2%; }
+}
+
+
+/* Small tablet to big tablet: from 768px to 1023px */
+@media only screen and (max-width: 1023px) {
+    body { font-size: 18px}
+    section { padding: 60px 0;}
+
+    .long-copy {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .plan-price { font-size: 250%; }
+
+    .contact-form { width: 80%; }
+}
+
+
+
+/* Small phones to small tablets: from 481px to 767px */
+@media only screen and (max-width: 767px) {
+    body { font-size: 16px}
+    section { padding: 30px 0;}
+
+    .row,
+    .car-text-box { padding: 0 4%; }
+    .col { 
+        width: 100%;
+        margin: 0 0 4% 0;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+    }
+
+    h1 { font-size: 180%; }
+    h2 { font-size: 150%; }
+
+    .long-copy {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    .search-vehicles {
+        display: block;
+    }
+
+    .search-row {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .show-car {
+        display: none;
+    }
+
+}
+
+
+/* Small phones: from 0 to 480px */
+@media only screen and (max-width: 480px) {
+    section { padding: 25px 0;}
+    .contact-form { width: 100%; }
+    .search-row {
+        width: 95%;
+        margin: 0 auto;
+    }
+}
+
+
