@@ -15,12 +15,26 @@
             <a href="home.html"><h1 class="logo">Auto Mart</h1></a>
             <ul class="nav-links">
                 <li><a href="postad.html">Post Ad</a></li>
-                <li><a href="myads.html">My Ads</a></li>
-                <li><a href="purchaseorder.html">Order</a></li>
+                <li><a href="allads.html">All Ads</a></li>
             </ul>
-            <ul class="logout">
-                <li><a href="index.html">Logout</a></li>
-            </ul>
+            <div class="dropdown">
+                <img src="img/user.jpg" alt="user icon">
+                <div class="dropdown-content">
+                <a href="updateorder.html">My Order</a>
+                <a href="myads.html">My Ads</a>
+                <a href="index.html">Logout</a>
+                </div>
+            </div>
+            <div class="dropdown" id="mini-nav">
+                <img src="img/user.jpg" alt="user icon">
+                <div class="dropdown-content">
+                    <a href="postad.html">Post Ad</a>
+                    <a href="allads.html">All Ads</a>
+                    <a href="updateorder.html">My Order</a>
+                    <a href="myads.html">My Ads</a>
+                    <a href="index.html">Logout</a>
+                </div>
+            </div>
         </nav>
     </header>
     <section class="cars-container">
@@ -28,8 +42,8 @@
             <img src="img/car1.jpg" alt="car 1">
             <h3>Price: 100$</h3>
             <div class="order-btn">
-                <a href="purchaseorder.html"><input type="submit" value="Order"></a>
-                <a href="#"><input type="submit" value="Report Ad"></a>
+                <a href="order.html"><input type="submit" value="Order"></a>
+                <a href="#" id="right-float"><input type="submit" id="myBtn" value="Report Ad"></a>
             </div>
         </div>
         <div class="col span-1-of-2 box">
@@ -57,6 +71,32 @@
         </div>
     </section>
 
+                <!-- The Modal -->
+        <div id="myModal" class="modal">
+                <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">X</span>
+                </div>
+                <div class="modal-body">
+                    <h2>Report Abuse</h2>
+                    <form class="contact-form">
+                        <label for="report">Report Reason</label>
+                        <select name="reason" id="reason">
+                            <option value="make" selected>Please select reason</option>
+                            <option value="sold">It is sold</option>
+                            <option value="spam">This ad is spam</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="description">Please describe your issue</label>
+                        <textarea name="message" placeholder="Your message"></textarea>
+                        <input type="submit" value="Submit"> 
+                    </form>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+
     <footer>
         <div class="row">
             <div class="col span-1-of-2">
@@ -79,5 +119,6 @@
             </p>
         </div>
     </footer>
+    <script src="js/index.js"></script>
 </body>
 </html>
