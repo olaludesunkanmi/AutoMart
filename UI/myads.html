@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AutoMart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style1.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/queries.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="home.html"><h1 class="logo">Auto Mart</h1></a>
+            <ul class="nav-links">
+                <li><a href="postad.html">Post Ad</a></li>
+                <li><a href="allads.html">All Ads</a></li>
+            </ul>
+            <div class="dropdown">
+                <img src="img/user.jpg" alt="user icon">
+                <div class="dropdown-content">
+                <a href="updateorder.html">My Order</a>
+                <a href="myads.html">My Ads</a>
+                <a href="index.html">Logout</a>
+                </div>
+            </div>
+            <div class="dropdown" id="mini-nav">
+                <img src="img/user.jpg" alt="user icon">
+                <div class="dropdown-content">
+                    <a href="postad.html">Post Ad</a>
+                    <a href="allads.html">All Ads</a>
+                    <a href="updateorder.html">My Order</a>
+                    <a href="myads.html">My Ads</a>
+                    <a href="index.html">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="row">
+        <h2>My Adverts</h2>
+    </div>
+    <section class="showcase">
+        <div class="row">
+            <div class="col span-1-of-4 box">
+                <img src="img/car1.jpg" alt="car 1">
+                <h3>Price: 100$</h3>
+                <div class="ad-details">
+                    <input type="radio" name="ad-btn" id="ad-btn" checked> Sold
+                    <input type="radio" name="ad-btn" id="ad-btn"> Available
+                    <input type="submit" class="myBtn" value="Edit">
+                </div>
+            </div>
+            <div class="col span-1-of-4 box">
+                <img src="img/car2.jpg" alt="car 2">
+                <h3>Price: 300$</h3>
+                <div class="ad-details">
+                    <input type="radio" name="ad-btn" id="ad-btn" checked> Sold
+                    <input type="radio" name="ad-btn" id="ad-btn"> Available
+                    <input type="submit" class="myBtn" value="Edit">
+                </div>
+            </div>
+            <div class="col span-1-of-4 box">
+                <img src="img/car3.jpg" alt="car 3">
+                <h3>Price: 250$</h3>
+                <div class="ad-details">
+                    <input type="radio" name="ad-btn" id="ad-btn"> Sold
+                    <input type="radio" name="ad-btn" id="ad-btn" checked> Available
+                    <input type="submit" value="Edit">
+                </div>
+            </div>
+            <div class="col span-1-of-4 box">
+                <img src="img/car4.jpg" alt="car 4">
+                <h3>Price: 150$</h3>
+                <div class="ad-details">
+                    <input type="radio" name="ad-btn" id="ad-btn"> Sold
+                    <input type="radio" name="ad-btn" id="ad-btn" checked> Available
+                    <input type="submit" value="Edit">
+                </div>
+            </div>
+        </div>
+    </section>
+                <!-- The Modal -->
+        <div id="myModal" class="modal">
+                <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">X</span>
+                </div>
+                <div class="modal-body">
+                    <h2>Edit Price</h2>
+                    <form class="contact-form">
+                        <label for="password">New Price</label>
+                        <input type="text" name="price" id="price" required>
+                        <input type="submit" value="Submit"> 
+                    </form>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+
+    <footer>
+        <div class="row">
+            <div class="col span-1-of-2">
+                <ul class="footer-nav">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">How it works</a></li>
+                </ul>
+            </div>
+            <div class="col span-1-of-2">
+                <ul class="social-links">
+                    <li><a href="#"></a><i class="fa fa-facebook"></i></li>
+                    <li><a href="#"></a><i class="fa fa-twitter"></i></li>
+                    <li><a href="#"></a><i class="fa fa-instagram"></i></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <p>
+                Copyright &copy; 2019 by Nelsunky. All rights reserved.
+            </p>
+        </div>
+    </footer>
+    <script src="js/index.js"></script>
+</body>
+</html>
