@@ -211,6 +211,50 @@ h2:after {
     border-bottom: 2px solid #e67e22;
 }
 
+/*----------------------------*/
+/* DROPDOWN */
+/*---------------------------*/
+
+#mini-nav {
+    display: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline;
+    margin-right: 15px;
+  }
+
+  .dropdown img {
+      border-radius: 10px;
+      height: 35px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #555;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 1px;
+  }
+  
+  .dropdown-content a {
+    color: #ffffff;
+    padding: 7px 9px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+      background-color: #f1f1f1;
+      color: black;
+    }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
 
 /*----------------------------*/
@@ -387,6 +431,92 @@ textarea {
 .order-container input[type=submit] {
     width: 100%;
 }
+
+/*----------------------------*/
+/* MODAL STYLE */
+/*---------------------------*/
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 25%;
+    top: 25%;
+    width: 60%; 
+    height: 65%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+    border-radius: 15px;
+  }
+    
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #EFE9E7;
+    margin: 10px auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 15px;
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-500px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+  }
+  
+  .modal-body {
+      padding: 2px 16px;
+    }
+
+.modal-body h2 {
+    color: black;
+    text-align: center;
+}
+
+.modal-body .contact-form input[type=submit] {
+    width: 100%;
+}
+  
+  .modal-footer {
+    padding: 2px 16px;
+    color: white;
+  }
 
 
 /*----------------------------*/
