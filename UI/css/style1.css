@@ -296,7 +296,7 @@ input[type=submit] {
     text-decoration: none;
     /* border-radius: 200px; */
     transition: background-color 0.2s, border 0.2s, color 0.2s;
-    width:90%;
+    width:100%;
 }
 
 input[type=submit] {
@@ -398,16 +398,26 @@ textarea {
 
 .order-btn {
     display: flex;
+    width: 100%;
 }
 
-.order-btn a {
-    width: 50%;
+.order-btn  a {
+    width: 45%;
+}
+
+.order-btn  input[type="submit"] {
+    width: 100%;
+}
+
+.order-btn  #right-float {
+    margin-left: auto;
 }
 
 .safety-box {
     width: 45%;
     margin: 0 auto;
 }
+
 
 /*----------------------------*/
 /* UPDATE ORDER PAGE */
