@@ -273,6 +273,12 @@ h2:after {
     height: 300px;
 }
 
+.span-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .search-inputs span {
     margin-right: 40px;
 }
