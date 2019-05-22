@@ -15,23 +15,37 @@
             <a href="home.html"><h1 class="logo">Auto Mart</h1></a>
             <ul class="nav-links">
                 <li><a href="postad.html">Post Ad</a></li>
-                <li><a href="vehicles.html">Vehicles</a></li>
-                <li><a href="updateorder.html">My Order</a></li>
+                <li><a href="allads.html">All Ads</a></li>
             </ul>
-            <ul class="logout">
-                <li><a href="index.html">Logout</a></li>
-            </ul>
+            <div class="dropdown">
+                <img src="img/user.jpg" alt="user icon">
+                <div class="dropdown-content">
+                <a href="updateorder.html">My Order</a>
+                <a href="myads.html">My Ads</a>
+                <a href="index.html">Logout</a>
+                </div>
+            </div>
+            <div class="dropdown" id="mini-nav">
+                <img src="img/user.jpg" alt="user icon">
+                <div class="dropdown-content">
+                    <a href="postad.html">Post Ad</a>
+                    <a href="allads.html">All Ads</a>
+                    <a href="updateorder.html">My Order</a>
+                    <a href="myads.html">My Ads</a>
+                    <a href="index.html">Logout</a>
+                </div>
+            </div>
         </nav>
     </header>
     <section class="search-vehicles">
         <div class="search-row">
             <h3>Search Vehicles</h3>
-            <div class="search-inputs">
-                <input type="radio" name="news" id="news" checked><span>All</span>
-                <input type="radio" name="news" id="news" checked><span>New</span>
-                <input type="radio" name="news" id="news" checked><span>Used</span>
+            <div class="search-inputs span-box">
+                <div><input type="radio" name="news" id="news" checked><span>Unsold</span></div>
+                <div><input type="radio" name="news" id="news" checked><span>New</span></div>
+                <div><input type="radio" name="news" id="news" checked><span>Used</span></div>
             </div>
-             <div class="search-inputs">
+            <div class="search-inputs">
                 <select name="make" id="make">
                     <option value="make" selected>Make</option>
                     <option value="toyota">Toyota</option>
