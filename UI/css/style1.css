@@ -322,6 +322,41 @@ input[type=submit] {
 }
 
 /*----------------------------*/
+/* BUTTONS */
+/*---------------------------*/
+
+.ad-caption {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    margin-left: auto;
+}
+
+.btn {
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    color: #fff;
+}
+
+.btn-ghost:link,
+ .btn-ghost:visited {
+    border: 1px solid #e67e22;
+    color: #e67e22;
+}
+
+.btn:hover,
+ .btn:active {
+    background-color: #cf6d17;
+}
+
+/*----------------------------*/
 /* FORM */
 /*---------------------------*/
 
@@ -369,9 +404,6 @@ textarea {
     margin-top: 30px;
     font-size: 200%;
 }
-/* .show-car p {
-    margin-bottom: 20px;
-} */
 
 /*----------------------------*/
 /* CITIES */
@@ -382,11 +414,6 @@ textarea {
     height: 200px;
     margin-bottom: 15px;
 }
-
-/* .city-feature {
-    margin-bottom: 5px;
-} */
-
 
 /*----------------------------*/
 /* CARS PAGE */
