@@ -5,7 +5,9 @@ import CarAuth from '../middleware/carAuth';
 import CarController from '../controllers/carController';
 
 const { validate, validateMarkAdStatus } = AdsAuth;
-const { postAd, markPostedAd, updatePostedAdPrice } = AdsController;
+const {
+  postAd, markPostedAd, updatePostedAdPrice, deletePostedAd,
+} = AdsController;
 const { validatePostedPrice, validateRange } = CarAuth;
 const { getSpecificCar, getUnsoldCars, getUnsoldCarsWithinPriceRange } = CarController;
 
@@ -24,5 +26,7 @@ carRouter.get('/car/:id', getSpecificCar);
 carRouter.get('/available', getUnsoldCars);
 // get cars within a price range
 carRouter.get('/available/range', validateRange, getUnsoldCarsWithinPriceRange);
+// delete a posted car ad
+carRouter.delete('/car/:id', deletePostedAd);
 
 export default carRouter;
