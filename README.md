@@ -1,4 +1,10 @@
 # AutoMart
+
+[![Build Status](https://travis-ci.org/olaludesunkanmi/AutoMart.svg?branch=develop)](https://travis-ci.org/olaludesunkanmi/AutoMart)
+[![Coverage Status](https://coveralls.io/repos/github/olaludesunkanmi/AutoMart/badge.svg?branch=ch-deploy-to-heroku-%23166567379)](https://coveralls.io/github/olaludesunkanmi/AutoMart?branch=ch-deploy-to-heroku-%23166567379)
+[![Maintainability](https://api.codeclimate.com/v1/badges/65b647ee1e9958a0937a/maintainability)](https://codeclimate.com/github/olaludesunkanmi/AutoMart/maintainability)
+
+## Description
 Auto Mart is an online marketplace for automobiles of diverse makes, model or body type. With
 Auto Mart, users can sell their cars or buy from trusted dealerships or private sellers.
 
