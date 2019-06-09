@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 // Get the modal
 const modal = document.getElementById('myModal');
 
@@ -20,7 +21,7 @@ span.onclick = function () {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = 'none';
   }
 };
