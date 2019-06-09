@@ -6,14 +6,20 @@ import CarController from '../controllers/carController';
 
 const { validate, validateMarkAdStatus } = AdsAuth;
 const {
-  postAd, markPostedAd, updatePostedAdPrice, deletePostedAd,
+  postAd,
+  markPostedAd,
+  updatePostedAdPrice,
+  deletePostedAd,
   allPostedAd,
 } = AdsController;
 const { validatePostedPrice, validateRange } = CarAuth;
 const {
-  getSpecificCar, getUnsoldCars, getUnsoldCarsWithinPriceRange, getUsedUnsoldCars,
+  getSpecificCar,
+  getUnsoldCars,
+  getUnsoldCarsWithinPriceRange,
+  getUsedUnsoldCars,
+  getNewUnsoldCars,
 } = CarController;
-
 
 const carRouter = express.Router();
 
@@ -35,5 +41,7 @@ carRouter.delete('/car/:id', deletePostedAd);
 carRouter.get('/car/', allPostedAd);
 // get all used unsold cars
 carRouter.get('/available/used', getUsedUnsoldCars);
+// get all new unsold cars
+carRouter.get('/available/new', getNewUnsoldCars);
 
 export default carRouter;

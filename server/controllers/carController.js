@@ -55,6 +55,16 @@ class CarController {
       data: usedUnsoldCars,
     });
   }
+
+  static getNewUnsoldCars(req, res) {
+    const newUnsoldCars = cars.filter(
+      c => c.status === 'available' && c.state === 'new',
+    );
+    res.status(200).json({
+      status: 200,
+      data: newUnsoldCars,
+    });
+  }
 }
 
 export default CarController;
