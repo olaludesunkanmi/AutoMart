@@ -145,6 +145,13 @@ class AdsController {
       data: 'Car Ad successfully deleted',
     });
   }
+
+  static allPostedAd(req, res) {
+    res.status(200).json({
+      status: 200,
+      data: ads,
+    });
+  }
 }
 
 export default AdsController;
