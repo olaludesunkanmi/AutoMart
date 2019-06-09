@@ -7,6 +7,7 @@ import CarController from '../controllers/carController';
 const { validate, validateMarkAdStatus } = AdsAuth;
 const {
   postAd, markPostedAd, updatePostedAdPrice, deletePostedAd,
+  allPostedAd,
 } = AdsController;
 const { validatePostedPrice, validateRange } = CarAuth;
 const { getSpecificCar, getUnsoldCars, getUnsoldCarsWithinPriceRange } = CarController;
@@ -28,5 +29,7 @@ carRouter.get('/available', getUnsoldCars);
 carRouter.get('/available/range', validateRange, getUnsoldCarsWithinPriceRange);
 // delete a posted car ad
 carRouter.delete('/car/:id', deletePostedAd);
+// get all posted car ads
+carRouter.get('/car/', allPostedAd);
 
 export default carRouter;
