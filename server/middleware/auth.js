@@ -44,4 +44,43 @@ export default class Auth {
     }
     return next();
   }
+
+  static loginValidator(req, res, next) {
+    const schema = {
+      email: Joi.string()
+        .email()
+        .required(),
+      password: Joi.string()
+        .min(8)
+        .required(),
+    };
+    const { error } = Joi.validate(req.body, schema);
+    if (error) {
+      return res
+        .status(400)
+        .json({ status: 400, error: error.details[0].message });
+    }
+    // Check if the entered email exists
+    const foundUser = users.find(e => e.email === req.body.email);
+    //   if user doesn't exist
+    if (!foundUser) {
+      return res.status(404).json({
+        status: 404,
+        error: 'User not found',
+      });
+    }
+
+    // Check if the entered password is correct
+    const password = users.find(p => p.password === req.body.password);
+    //   if password is Incorrect
+    if (!password) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Incorrect password',
+      });
+    }
+    req.body.foundUser = foundUser;
+    req.body.password = password;
+    return next();
+  }
 }

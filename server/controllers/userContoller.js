@@ -29,5 +29,22 @@ class UserController {
       ],
     });
   }
+
+  static signIn(req, res) {
+    const { foundUser } = req.body;
+    const token = generateToken(foundUser);
+    return res.status(200).json({
+      status: 200,
+      data: [
+        {
+          token,
+          id: foundUser.id,
+          firstname: foundUser.firstname,
+          lastname: foundUser.lastname,
+          email: foundUser.email,
+        },
+      ],
+    });
+  }
 }
 export default UserController;
