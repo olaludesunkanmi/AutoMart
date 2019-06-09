@@ -7,7 +7,7 @@ import CarController from '../controllers/carController';
 const { validate, validateMarkAdStatus } = AdsAuth;
 const { postAd, markPostedAd, updatePostedAdPrice } = AdsController;
 const { validatePostedPrice } = CarAuth;
-const { getSpecificCar } = CarController;
+const { getSpecificCar, getUnsoldCars } = CarController;
 
 
 const carRouter = express.Router();
@@ -20,5 +20,7 @@ carRouter.patch('/car/:id/status', validateMarkAdStatus, markPostedAd);
 carRouter.patch('/car/:id/price', validatePostedPrice, updatePostedAdPrice);
 // get a specific car
 carRouter.get('/car/:id', getSpecificCar);
+// get all unsold cars
+carRouter.get('/available', getUnsoldCars);
 
 export default carRouter;
