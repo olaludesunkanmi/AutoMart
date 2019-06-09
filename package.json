@@ -4,7 +4,9 @@
   "description": "Automart is an online marketplace for automobiles of diverse makes, model or body type",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "babel-node server/app.js",
+    "start:dev": "nodemon --exec babel-node server/app.js",
+    "test": "mocha --require @babel/register server/test/*.js --exit"
   },
   "repository": {
     "type": "git",
