@@ -25,4 +25,21 @@ export default class AdsAuth {
     }
     return next();
   }
+
+  static validateMarkAdStatus(req, res, next) {
+    const newStatusSchema = {
+      status: Joi.string()
+        .valid('sold', 'available')
+        .required(),
+    };
+
+    const { error } = Joi.validate(req.body, newStatusSchema);
+
+    if (error) {
+      return res
+        .status(400)
+        .json({ status: 400, error: error.details[0].message });
+    }
+    return next();
+  }
 }
