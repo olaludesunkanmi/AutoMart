@@ -4,6 +4,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import userRouter from './routes/users';
 import carRouter from './routes/cars';
+import orderRouter from './routes/order';
 
 const PORT = process.env.PORT || 3000;
 
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 
 app.use('/api/v1/auth', userRouter);
 app.use('/api/v1', carRouter);
+app.use('/api/v1', orderRouter);
 
 app.get('/', (req, res) => res.status(200).json({
   status: 200,
