@@ -3,6 +3,7 @@ import 'dotenv/config';
 import express from 'express';
 import bodyParser from 'body-parser';
 import userRouter from './routes/users';
+import carRouter from './routes/cars';
 
 const PORT = process.env.PORT || 3000;
 
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/api/v1/auth', userRouter);
+app.use('/api/v1', carRouter);
 
 app.get('/', (req, res) => res.status(200).json({
   status: 200,
