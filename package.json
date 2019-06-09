@@ -28,14 +28,14 @@
     "jsonwebtoken": "^8.5.1",
     "mocha": "^6.1.4",
     "chai": "^4.2.0",
-    "chai-http": "^4.3.0"
-  },
-  "devDependencies": {
+    "chai-http": "^4.3.0",
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
-    "@babel/register": "^7.4.4",
+    "@babel/register": "^7.4.4"
+  },
+  "devDependencies": {
     "coveralls": "^3.0.4",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",

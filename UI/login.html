@@ -24,7 +24,7 @@
             <h2>Please, login here</h2>
         </div>
         <div class="row">
-            <form method="post" action="home.html" class="contact-form">
+            <form action="home.html" class="contact-form">
                 <div class="row">
                     <div class="col span-1-of-3">
                         <label for="email">Email</label>
@@ -69,6 +69,38 @@
         </div>
     </section>
 
+          <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">X</span>
+        </div>
+        <div class="modal-body">
+            <h2>Reset Password</h2>
+            <form class="contact-form">
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="email">Email</label>
+                    </div>
+                     <div class="col span-2-of-3">
+                        <input type="email" name="email" id="email" placeholder="Your email" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="name">New Password</label>
+                    </div>
+                     <div class="col span-2-of-3">
+                        <input type="password" name="password" id="password" placeholder="Your password" required>
+                    </div>
+                <input type="submit" value="Submit"> 
+            </form>
+        </div>
+        <div class="modal-footer"></div>
+    </div>
+    </div>
+
     <footer>
         <div class="row">
             <div class="col span-1-of-2">
@@ -91,5 +123,6 @@
             </p>
         </div>
     </footer>
+    <script src="js/index.js"></script>
 </body>
 </html>
