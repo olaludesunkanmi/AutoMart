@@ -31,6 +31,9 @@ Auto Mart, users can sell their cars or buy from trusted dealerships or private 
 - User can view all used unsold cars.
 - User can view all new unsold cars.
 
+## Gh-pages Link
+https://olaludesunkanmi.github.io/AutoMart/UI
+
 ### API Routes
 S/N | Verb   | Endpoint         | Description                    |
 ---:| -------|------------------|--------------------------------|
