@@ -1,49 +1,49 @@
+/* eslint-disable camelcase */
 import ads from '../models/adsDb';
-import users from '../models/userDb';
 import cars from '../models/carsDb';
+import db from '../config/index';
 
 class AdsController {
-  static postAd(req, res) {
-    const newAd = {
-      id: ads[ads.length - 1].id + 1,
-      createdOn: new Date().toUTCString(),
-      owner: req.body.owner,
-      email: req.body.email,
-      manufacturer: req.body.manufacturer,
-      model: req.body.model,
-      price: req.body.price,
-      state: req.body.state,
-      status: req.body.status,
-    };
-    const userId = users.find(o => o.id === parseInt(newAd.owner, 10));
-    if (!userId) {
-      return res.status(404).json({
-        status: 404,
-        error: 'owner not found',
+  // post a car ad
+  static async postAd(req, res) {
+    try {
+      const {
+        manufacturer, model, price, state, status,
+      } = req.body;
+      const created_on = new Date().toUTCString();
+      const body_type = req.body.body_type || 'car';
+      const owner = req.user.id;
+      const insertCar = 'INSERT INTO cars(owner, created_on, state, status, price, manufacturer, model, body_type) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *';
+      const results = await db.query(insertCar, [
+        owner,
+        created_on,
+        state,
+        status,
+        price,
+        manufacturer,
+        model,
+        body_type,
+      ]);
+      res.status(201).json({
+        status: 201,
+        data: {
+          id: results.rows[0].id,
+          created_on,
+          email: req.user.email,
+          manufacturer,
+          model,
+          price,
+          state,
+          status,
+        },
+      });
+      return;
+    } catch (error) {
+      res.status(500).json({
+        status: 500,
+        error,
       });
     }
-    const user = users.find(e => e.email === newAd.email);
-    if (!user) {
-      return res.status(404).json({
-        status: 404,
-        error: 'User not found',
-      });
-    }
-
-    ads.push(newAd);
-    return res.status(201).json({
-      status: 201,
-      data: {
-        id: newAd.id,
-        createdOn: new Date().toUTCString(),
-        email: req.body.email,
-        manufacturer: req.body.manufacturer,
-        model: req.body.model,
-        price: req.body.price,
-        state: req.body.state,
-        status: req.body.status,
-      },
-    });
   }
 
   static markPostedAd(req, res) {

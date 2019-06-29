@@ -60,7 +60,7 @@ describe('signup', () => {
 
   it('user should not be able to signup when the email is already registered', (done) => {
     const user = {
-      email: 'olaludesunkanmi@yahoo.com',
+      email: 'j2k4@yahoo.com',
       first_name: 'Jon',
       last_name: 'Champion',
       password: '12345678',
