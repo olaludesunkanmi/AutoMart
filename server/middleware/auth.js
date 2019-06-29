@@ -5,12 +5,12 @@ const Joi = require('joi');
 export default class Auth {
   static validate(req, res, next) {
     const schema = {
-      firstname: Joi.string()
+      first_name: Joi.string()
         .trim()
         .required()
         .min(2)
         .regex(/^[a-zA-Z]+/),
-      lastname: Joi.string()
+      last_name: Joi.string()
         .trim()
         .required()
         .min(2)
@@ -26,7 +26,7 @@ export default class Auth {
       address: Joi.string()
         .trim()
         .required(),
-      isAdmin: Joi.boolean().required(),
+      is_admin: Joi.boolean().required(),
     };
 
     const { error } = Joi.validate(req.body, schema);
@@ -35,12 +35,6 @@ export default class Auth {
       return res
         .status(400)
         .json({ status: 400, error: error.details[0].message });
-    }
-    const user = users.find(e => e.email === req.body.email);
-    if (user) {
-      return res
-        .status(405)
-        .json({ status: 405, error: 'The email is already registered' });
     }
     return next();
   }
