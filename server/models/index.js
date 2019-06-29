@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
 import usersTable from './users';
+import carsTable from './cars';
 
 const createAllTables = async () => {
   try {
     await usersTable();
+    await carsTable();
   } catch (err) {
     console.log(err);
   }
