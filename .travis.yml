@@ -8,7 +8,7 @@ services:
   - postgresql
 before_script:
   - npm install
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c 'create database autoDb;' -U postgres
 script:
   - npm test
 after_success:
