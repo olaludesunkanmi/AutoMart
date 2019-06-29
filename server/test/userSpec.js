@@ -122,3 +122,96 @@ describe('signup', () => {
       });
   });
 });
+
+// sign in tests case
+describe('login', () => {
+  it('user should be able to login', (done) => {
+    const user = {
+      email: 'j2k4@yahoo.com',
+      password: '12345678',
+    };
+    chai
+      .request(app)
+      .post('/api/v1/auth/login')
+      .send(user)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(200);
+        res.body.should.have.property('data');
+        done();
+      });
+  });
+
+  it('user should not be able to login when there is incorrect data type', (done) => {
+    const user = {
+      email: 2,
+      password: '12345678',
+    };
+    chai
+      .request(app)
+      .post('/api/v1/auth/login')
+      .send(user)
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(400);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
+  it('user should not be able to login when the email is not registered', (done) => {
+    const user = {
+      email: 'avengers@yahoo.com',
+      password: '12345678',
+    };
+    chai
+      .request(app)
+      .post('/api/v1/auth/login')
+      .send(user)
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(404);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
+  it('user should not be able to login when there is an empty field', (done) => {
+    const user = {
+      email: '',
+      password: '12345678',
+    };
+    chai
+      .request(app)
+      .post('/api/v1/auth/login')
+      .send(user)
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(400);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
+  it('user should not be able to login when the password is incorrect', (done) => {
+    const user = {
+      email: 'j2k4@yahoo.com',
+      password: 'ad57478',
+    };
+    chai
+      .request(app)
+      .post('/api/v1/auth/login')
+      .send(user)
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(400);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+});
