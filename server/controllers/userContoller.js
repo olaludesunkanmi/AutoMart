@@ -78,6 +78,64 @@ class UserController {
       });
     }
   }
+
+  // login
+  static async signIn(req, res) {
+    try {
+      const findUser = 'SELECT * FROM users WHERE email = $1';
+      const values = req.body.email.trim().toLowerCase();
+      const { rows } = await db.query(findUser, [values]);
+
+      if (!rows[0]) {
+        res.status(404).json({
+          status: 404,
+          error: 'Email is not registered',
+        });
+        return;
+      }
+
+      const password = bcrypt.compareSync(
+        req.body.password.trim(),
+        rows[0].password,
+      );
+      if (!password) {
+        res.status(404).json({
+          status: 404,
+          error: 'Incorrect password',
+        });
+        return;
+      }
+
+      const {
+        id, email, first_name, last_name, address, is_admin,
+      } = rows[0];
+      const payload = {
+        id,
+        email,
+        first_name,
+        last_name,
+        address,
+        is_admin,
+      };
+      const token = generateToken(payload);
+      res.status(200).json({
+        status: 200,
+        data: {
+          token,
+          id,
+          first_name,
+          last_name,
+          email,
+        },
+      });
+      return;
+    } catch (error) {
+      res.status(500).json({
+        status: 500,
+        error,
+      });
+    }
+  }
 }
 
 export default UserController;
