@@ -8,10 +8,19 @@ import Auth from '../middleware/auth';
 const { verifyToken } = Auth;
 const { validate, validateMarkAdStatus } = AdsAuth;
 const {
-  postAd, markPostedAd, updatePostedAdPrice, deletePostedAd, allPostedAd,
+  postAd,
+  markPostedAd,
+  updatePostedAdPrice,
+  deletePostedAd,
+  allPostedAd,
 } = AdsController;
 const { validatePostedPrice, validateRange } = CarAuth;
-const { getSpecificCar, getUnsoldCars, getUnsoldCarsWithinPriceRange } = CarController;
+const {
+  getSpecificCar,
+  getUnsoldCars,
+  getUnsoldCarsWithinPriceRange,
+  getUsedUnsoldCars,
+} = CarController;
 
 const carRouter = express.Router();
 
@@ -46,5 +55,7 @@ carRouter.get(
 carRouter.delete('/car/:id', verifyToken, deletePostedAd);
 // get all posted car ads
 carRouter.get('/car/', verifyToken, allPostedAd);
+// get all used unsold cars
+carRouter.get('/available/used', verifyToken, getUsedUnsoldCars);
 
 export default carRouter;
