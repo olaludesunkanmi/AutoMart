@@ -1,69 +1,30 @@
-import cars from '../models/carsDb';
+import db from '../config/index';
 
 class CarController {
-  static getSpecificCar(req, res) {
-    const car = cars.find(c => c.id === parseInt(req.params.id, 10));
-    if (!car) {
-      res.status(404).json({
-        status: 404,
-        error: 'car not found',
-      });
-    } else {
-      res.status(200).json({
-        status: 200,
-        data: car,
+  // get specific car
+  static async getSpecificCar(req, res) {
+    try {
+      const findCar = 'SELECT * FROM cars WHERE id = $1';
+      const value = parseInt(req.params.id, 10);
+      const car = await db.query(findCar, [value]);
+      if (!car.rows[0]) {
+        res.status(404).json({
+          status: 404,
+          message: 'car not found',
+          data: [],
+        });
+      } else {
+        res.status(200).json({
+          status: 200,
+          data: car.rows[0],
+        });
+      }
+    } catch (error) {
+      res.status(500).json({
+        status: 500,
+        error,
       });
     }
-  }
-
-  static getUnsoldCars(req, res) {
-    const unsoldCars = cars.filter(car => car.status === 'available');
-    res.status(200).json({
-      status: 200,
-      data: unsoldCars,
-    });
-  }
-
-  static getUnsoldCarsWithinPriceRange(req, res) {
-    const Price = {
-      min_price: req.body.min_price,
-      max_price: req.body.max_price,
-    };
-    const unsoldCars = cars.filter(car => car.status === 'available');
-    const PriceRange = unsoldCars.filter(
-      p => p.price >= Price.min_price && p.price <= Price.max_price,
-    );
-    if (!PriceRange.length) {
-      res.status(404).json({
-        status: 404,
-        error: 'there are no cars within that price range not found',
-      });
-      return;
-    }
-    res.status(200).json({
-      status: 200,
-      data: PriceRange,
-    });
-  }
-
-  static getUsedUnsoldCars(req, res) {
-    const usedUnsoldCars = cars.filter(
-      c => c.status === 'available' && c.state === 'used',
-    );
-    res.status(200).json({
-      status: 200,
-      data: usedUnsoldCars,
-    });
-  }
-
-  static getNewUnsoldCars(req, res) {
-    const newUnsoldCars = cars.filter(
-      c => c.status === 'available' && c.state === 'new',
-    );
-    res.status(200).json({
-      status: 200,
-      data: newUnsoldCars,
-    });
   }
 }
 
