@@ -48,6 +48,33 @@ describe('Viewing all unsold cars', () => {
       });
   });
 });
+describe('View used unsold cars', () => {
+  it('user should be able to view used unsold cars', (done) => {
+    const value = {
+      status: 'available',
+      state: 'used',
+    };
+    chai
+      .request(app)
+      .get('/api/v1/available/used')
+      .set('x-access-token', accessToken)
+      .send(value)
+      .end((err, res) => {
+        if (res.body.status === 200) {
+          res.should.have.status(200);
+          res.should.be.an('object');
+          res.body.should.have.property('status').eql(200);
+          res.body.should.have.property('data');
+        } else {
+          res.should.have.status(404);
+          res.body.should.be.a('object');
+          res.body.should.have.property('status').eql(404);
+          res.body.should.have.property('message');
+        }
+        done();
+      });
+  });
+});
 
 describe('Viewing a specific car', () => {
   it('user should be able to view a specific car', (done) => {
