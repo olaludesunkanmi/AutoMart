@@ -7,7 +7,9 @@ import Auth from '../middleware/auth';
 
 const { verifyToken } = Auth;
 const { validate, validateMarkAdStatus } = AdsAuth;
-const { postAd, markPostedAd, updatePostedAdPrice } = AdsController;
+const {
+  postAd, markPostedAd, updatePostedAdPrice, deletePostedAd,
+} = AdsController;
 const { validatePostedPrice, validateRange } = CarAuth;
 const { getSpecificCar, getUnsoldCars, getUnsoldCarsWithinPriceRange } = CarController;
 
@@ -40,5 +42,7 @@ carRouter.get(
   validateRange,
   getUnsoldCarsWithinPriceRange,
 );
+// delete a posted car ad
+carRouter.delete('/car/:id', verifyToken, deletePostedAd);
 
 export default carRouter;

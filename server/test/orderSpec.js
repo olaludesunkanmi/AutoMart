@@ -44,10 +44,17 @@ describe('Purchasing order', () => {
       .set('x-access-token', accessToken)
       .send(newOrder)
       .end((err, res) => {
-        res.should.have.status(201);
-        res.should.be.an('object');
-        res.body.should.have.property('status').eql(201);
-        res.body.should.have.property('data');
+        if (res.body.status === 201) {
+          res.should.have.status(201);
+          res.should.be.an('object');
+          res.body.should.have.property('status').eql(201);
+          res.body.should.have.property('data');
+        } else {
+          res.should.have.status(404);
+          res.body.should.be.a('object');
+          res.body.should.have.property('status').eql(404);
+          res.body.should.have.property('error');
+        }
         done();
       });
   });

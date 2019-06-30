@@ -56,10 +56,17 @@ describe('Viewing a specific car', () => {
       .get('/api/v1/car/1')
       .set('x-access-token', accessToken)
       .end((err, res) => {
-        res.should.have.status(200);
-        res.should.be.an('object');
-        res.body.should.have.property('status').eql(200);
-        res.body.should.have.property('data');
+        if (res.body.status === 200) {
+          res.should.have.status(200);
+          res.should.be.an('object');
+          res.body.should.have.property('status').eql(200);
+          res.body.should.have.property('data');
+        } else {
+          res.should.have.status(404);
+          res.should.be.an('object');
+          res.body.should.have.property('status').eql(404);
+          res.body.should.have.property('message');
+        }
         done();
       });
   });

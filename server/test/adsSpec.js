@@ -183,3 +183,40 @@ describe('Marking the posted car ad as sold', () => {
       });
   });
 });
+// DELETE A POSTED CAR AD TEST CASE
+describe('Delete a posted car ad', () => {
+  it('user should be able to delete posted car ad', (done) => {
+    chai
+      .request(app)
+      .delete('/api/v1/car/1')
+      .set('x-access-token', accessToken)
+      .end((err, res) => {
+        if (res.body.status === 200) {
+          res.should.have.status(200);
+          res.should.be.an('object');
+          res.body.should.have.property('status').eql(200);
+          res.body.should.have.property('data');
+        } else {
+          res.should.have.status(404);
+          res.body.should.be.a('object');
+          res.body.should.have.property('status').eql(404);
+          res.body.should.have.property('error');
+        }
+        done();
+      });
+  });
+
+  it('user should not be able to delete posted car ad', (done) => {
+    chai
+      .request(app)
+      .delete('/api/v1/car/120')
+      .set('x-access-token', accessToken)
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(404);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+});
