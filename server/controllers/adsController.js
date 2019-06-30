@@ -95,6 +95,56 @@ class AdsController {
       });
     }
   }
+
+  // update the price of the posted car ad
+  static async updatePostedAdPrice(req, res) {
+    try {
+      const findCarId = 'SELECT * FROM cars WHERE id = $1';
+      const value = parseInt(req.params.id, 10);
+      const carId = await db.query(findCarId, [value]);
+
+      if (!carId.rows[0]) {
+        res.status(404).json({
+          status: 404,
+          error: 'Car post not found',
+        });
+        return;
+      }
+      const updateCar = 'UPDATE cars SET price = $1  WHERE id = $2';
+      const values = [req.body.price, value];
+      await db.query(updateCar, values);
+
+      const {
+        id,
+        owner,
+        state,
+        status,
+        manufacturer,
+        model,
+        body_type,
+      } = carId.rows[0];
+      res.status(200).json({
+        status: 200,
+        data: {
+          id,
+          owner,
+          createdOn: new Date().toUTCString(),
+          state,
+          status,
+          price: req.body.price,
+          manufacturer,
+          model,
+          body_type,
+        },
+      });
+      return;
+    } catch (error) {
+      res.status(500).json({
+        status: 500,
+        error,
+      });
+    }
+  }
 }
 
 export default AdsController;
