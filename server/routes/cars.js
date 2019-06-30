@@ -9,7 +9,7 @@ const { verifyToken } = Auth;
 const { validate, validateMarkAdStatus } = AdsAuth;
 const { postAd, markPostedAd, updatePostedAdPrice } = AdsController;
 const { validatePostedPrice } = CarAuth;
-const { getSpecificCar } = CarController;
+const { getSpecificCar, getUnsoldCars } = CarController;
 
 const carRouter = express.Router();
 
@@ -31,5 +31,7 @@ carRouter.patch(
 );
 // get a specific car
 carRouter.get('/car/:id', verifyToken, getSpecificCar);
+// get all unsold cars
+carRouter.get('/available', verifyToken, getUnsoldCars);
 
 export default carRouter;

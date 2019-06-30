@@ -30,6 +30,23 @@ describe('Viewing all unsold cars', () => {
         done();
       });
   });
+  it('user should be able to view all unsold cars', (done) => {
+    const value = {
+      status: 'available',
+    };
+    chai
+      .request(app)
+      .get('/api/v1/available')
+      .set('x-access-token', accessToken)
+      .send(value)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(200);
+        res.body.should.have.property('data');
+        done();
+      });
+  });
 });
 
 describe('Viewing a specific car', () => {
