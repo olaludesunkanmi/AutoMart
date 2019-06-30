@@ -1,5 +1,6 @@
 import express from 'express';
 import AdsController from '../controllers/adsController';
+import CarController from '../controllers/carController';
 import AdsAuth from '../middleware/adsAuth';
 import CarAuth from '../middleware/carAuth';
 import Auth from '../middleware/auth';
@@ -8,6 +9,7 @@ const { verifyToken } = Auth;
 const { validate, validateMarkAdStatus } = AdsAuth;
 const { postAd, markPostedAd, updatePostedAdPrice } = AdsController;
 const { validatePostedPrice } = CarAuth;
+const { getSpecificCar } = CarController;
 
 const carRouter = express.Router();
 
@@ -27,5 +29,7 @@ carRouter.patch(
   validatePostedPrice,
   updatePostedAdPrice,
 );
+// get a specific car
+carRouter.get('/car/:id', verifyToken, getSpecificCar);
 
 export default carRouter;
