@@ -90,3 +90,59 @@ describe('Viewing a specific car', () => {
       });
   });
 });
+
+describe('View all unsold cars within a price  range', () => {
+  it('user should be able to view all unsold cars within a price range', (done) => {
+    const range = {
+      min_price: 50,
+      max_price: 1000,
+      status: 'available',
+    };
+    chai
+      .request(app)
+      .get('/api/v1/available/range')
+      .set('x-access-token', accessToken)
+      .send(range)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(200);
+        res.body.should.have.property('data');
+        done();
+      });
+  });
+
+  it('user should not be able to view all unsold cars within a price range when there is none', (done) => {
+    const range = {
+      min_price: 0,
+      max_price: 0,
+      status: 'available',
+    };
+    chai
+      .request(app)
+      .get('/api/v1/available/range')
+      .set('x-access-token', accessToken)
+      .send(range)
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(404);
+        res.body.should.have.property('message');
+        done();
+      });
+  });
+
+  it('user should not be able to view all unsold cars within a price range when not specified', (done) => {
+    chai
+      .request(app)
+      .get('/api/v1/available/range')
+      .set('x-access-token', accessToken)
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(400);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+});

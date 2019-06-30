@@ -8,8 +8,8 @@ import Auth from '../middleware/auth';
 const { verifyToken } = Auth;
 const { validate, validateMarkAdStatus } = AdsAuth;
 const { postAd, markPostedAd, updatePostedAdPrice } = AdsController;
-const { validatePostedPrice } = CarAuth;
-const { getSpecificCar, getUnsoldCars } = CarController;
+const { validatePostedPrice, validateRange } = CarAuth;
+const { getSpecificCar, getUnsoldCars, getUnsoldCarsWithinPriceRange } = CarController;
 
 const carRouter = express.Router();
 
@@ -33,5 +33,12 @@ carRouter.patch(
 carRouter.get('/car/:id', verifyToken, getSpecificCar);
 // get all unsold cars
 carRouter.get('/available', verifyToken, getUnsoldCars);
+// get cars within a price range
+carRouter.get(
+  '/available/range',
+  verifyToken,
+  validateRange,
+  getUnsoldCarsWithinPriceRange,
+);
 
 export default carRouter;
