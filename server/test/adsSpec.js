@@ -107,11 +107,16 @@ describe('Marking the posted car ad as sold', () => {
           res.should.be.an('object');
           res.body.should.have.property('status').eql(200);
           res.body.should.have.property('data');
-        } else {
+        } else if (res.body.status === 404) {
           res.should.have.status(404);
           res.should.be.an('object');
           res.body.should.have.property('status').eql(404);
           res.body.should.have.property('message');
+        } else {
+          res.should.have.status(400);
+          res.should.be.an('object');
+          res.body.should.have.property('status').eql(400);
+          res.body.should.have.property('error');
         }
         done();
       });
