@@ -9,6 +9,7 @@ services:
 before_script:
   - npm install
   - psql -c 'create database autoDb;' -U postgres
+  - npm run-tables
 script:
   - npm test
 after_success:
