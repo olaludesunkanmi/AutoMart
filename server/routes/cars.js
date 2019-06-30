@@ -20,6 +20,7 @@ const {
   getUnsoldCars,
   getUnsoldCarsWithinPriceRange,
   getUsedUnsoldCars,
+  getNewUnsoldCars,
 } = CarController;
 
 const carRouter = express.Router();
@@ -57,5 +58,7 @@ carRouter.delete('/car/:id', verifyToken, deletePostedAd);
 carRouter.get('/car/', verifyToken, allPostedAd);
 // get all used unsold cars
 carRouter.get('/available/used', verifyToken, getUsedUnsoldCars);
+// get all new unsold cars
+carRouter.get('/available/new', verifyToken, getNewUnsoldCars);
 
 export default carRouter;

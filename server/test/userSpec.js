@@ -26,6 +26,7 @@ describe('signup', () => {
           res.should.be.an('object');
           res.body.should.have.property('status').eql(201);
           res.body.should.have.property('data');
+          res.body.data.should.have.property('token');
         } else {
           res.should.have.status(403);
           res.should.be.an('object');
@@ -139,6 +140,7 @@ describe('login', () => {
         res.should.be.an('object');
         res.body.should.have.property('status').eql(200);
         res.body.should.have.property('data');
+        res.body.data.should.have.property('token');
         done();
       });
   });

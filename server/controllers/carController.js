@@ -107,6 +107,33 @@ class CarController {
       });
     }
   }
+
+  // get new unsold cars
+  static async getNewUnsoldCars(req, res) {
+    try {
+      const findNewUnsoldCars = 'SELECT * FROM cars WHERE status = $1 AND state = $2';
+      const values = [req.body.status, req.body.state];
+      const newUnsoldCars = await db.query(findNewUnsoldCars, values);
+
+      if (!newUnsoldCars.rows[0]) {
+        res.status(404).json({
+          status: 404,
+          message: `no ${req.body.state} ${req.body.status} car found`,
+          data: [],
+        });
+        return;
+      }
+      res.status(200).json({
+        status: 200,
+        data: newUnsoldCars.rows,
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: 500,
+        error: 'Server error',
+      });
+    }
+  }
 }
 
 export default CarController;

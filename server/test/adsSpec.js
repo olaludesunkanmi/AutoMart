@@ -11,22 +11,33 @@ dotenv.config();
 let accessToken;
 
 describe('Post a car a sale ad', () => {
-  it('should log a user in', (done) => {
-    const data = {
+  it('user should signup', (done) => {
+    const user = {
+      first_name: 'John',
+      last_name: 'Champion',
       email: 'j2k4@yahoo.com',
       password: '12345678',
+      address: 'kings way avenue',
+      is_admin: false,
     };
     chai
       .request(app)
-      .post('/api/v1/auth/login')
-      .send(data)
+      .post('/api/v1/auth/signup')
+      .send(user)
       .end((err, res) => {
         accessToken = res.body.data.token;
-        res.should.have.status(200);
-        res.should.be.an('object');
-        res.body.should.have.property('status').eql(200);
-        res.body.data.should.have.property('token');
-        res.body.should.have.property('data');
+        if (res.body.status === 201) {
+          res.should.have.status(201);
+          res.should.be.an('object');
+          res.body.should.have.property('status').eql(201);
+          res.body.should.have.property('data');
+          res.body.data.should.have.property('token');
+        } else {
+          res.should.have.status(403);
+          res.should.be.an('object');
+          res.body.should.have.property('status').eql(403);
+          res.body.should.have.property('error');
+        }
         done();
       });
   });
