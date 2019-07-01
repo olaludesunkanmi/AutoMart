@@ -138,10 +138,17 @@ describe('updating the price purchasing order', () => {
       .set('x-access-token', accessToken)
       .send(newOrder)
       .end((err, res) => {
-        res.should.have.status(200);
-        res.should.be.an('object');
-        res.body.should.have.property('status').eql(200);
-        res.body.should.have.property('data');
+        if (res.body.status === 200) {
+          res.should.have.status(200);
+          res.should.be.an('object');
+          res.body.should.have.property('status').eql(200);
+          res.body.should.have.property('data');
+        } else {
+          res.should.have.status(404);
+          res.should.be.an('object');
+          res.body.should.have.property('status').eql(404);
+          res.body.should.have.property('error');
+        }
         done();
       });
   });
@@ -220,6 +227,11 @@ describe('updating the price purchasing order', () => {
           res.should.have.status(403);
           res.should.be.an('object');
           res.body.should.have.property('status').eql(403);
+          res.body.should.have.property('error');
+        } else if (res.body.status === 404) {
+          res.should.have.status(404);
+          res.should.be.an('object');
+          res.body.should.have.property('status').eql(404);
           res.body.should.have.property('error');
         } else {
           res.should.have.status(200);

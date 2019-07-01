@@ -8,8 +8,11 @@ services:
   - postgresql
 before_script:
   - npm install
+  - psql -c 'DROP DATABASE IF EXISTS autoDb;' -U postgres
   - psql -c 'create database autoDb;' -U postgres
   - npm run run-tables
+env:
+  - SECRET="NEVER GIVE UP"
 script:
   - npm test
 after_success:
