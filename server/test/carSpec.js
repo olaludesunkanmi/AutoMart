@@ -48,6 +48,7 @@ describe('Viewing all unsold cars', () => {
       });
   });
 });
+// USED UNSOLD CARS TESTCASE
 describe('View used unsold cars', () => {
   it('user should be able to view used unsold cars', (done) => {
     const value = {
@@ -75,7 +76,35 @@ describe('View used unsold cars', () => {
       });
   });
 });
-
+// NEW UNSOLD CARS TESTCASE
+describe('View new unsold cars', () => {
+  it('user should be able to view new unsold cars', (done) => {
+    const value = {
+      status: 'new',
+      state: 'used',
+    };
+    chai
+      .request(app)
+      .get('/api/v1/available/new')
+      .set('x-access-token', accessToken)
+      .send(value)
+      .end((err, res) => {
+        if (res.body.status === 200) {
+          res.should.have.status(200);
+          res.should.be.an('object');
+          res.body.should.have.property('status').eql(200);
+          res.body.should.have.property('data');
+        } else {
+          res.should.have.status(404);
+          res.body.should.be.a('object');
+          res.body.should.have.property('status').eql(404);
+          res.body.should.have.property('message');
+        }
+        done();
+      });
+  });
+});
+// VIEW A SPECIFIC CAR TESTCASE
 describe('Viewing a specific car', () => {
   it('user should be able to view a specific car', (done) => {
     chai
@@ -124,7 +153,7 @@ describe('Viewing a specific car', () => {
       });
   });
 });
-
+// VIEW UNSOLD CARS WITHIN A PRICE RANGE TESTCASE
 describe('View all unsold cars within a price  range', () => {
   it('user should be able to view all unsold cars within a price range', (done) => {
     const range = {
