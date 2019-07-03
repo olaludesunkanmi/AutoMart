@@ -133,7 +133,7 @@ This is the API(Application Programming Interface) documentation for the AutoMar
 
 # Group Cars
 
-## Retreive a Car [/car/{id}]
+## Retreive a Car [/car/{id}/]
 
 - Parameter
 
@@ -153,7 +153,7 @@ This is the API(Application Programming Interface) documentation for the AutoMar
 
 - Request (application/json)
 
-    - Attributes (Car Unsold)
+    - Attributes (Status)
 
 - Response 200 (application/json)
 
@@ -166,7 +166,7 @@ This is the API(Application Programming Interface) documentation for the AutoMar
 
 - Request (application/json)
 
-    - Attributes (Car UnsoldWithinRange)
+    - Attributes (UnsoldWithinRange)
 
 - Response 200 (application/json)
 
@@ -179,7 +179,7 @@ This is the API(Application Programming Interface) documentation for the AutoMar
 
 - Request (application/json)
 
-    - Attributes (Car State)
+    - Attributes (State)
 
 - Response 200 (application/json)
 
@@ -191,7 +191,7 @@ This is the API(Application Programming Interface) documentation for the AutoMar
 
 - Request (application/json)
 
-    - Attributes (Car State)
+    - Attributes (State)
 
 - Response 200 (application/json)
 
@@ -222,23 +222,23 @@ This is the API(Application Programming Interface) documentation for the AutoMar
 - email: johndoe@yahoo.com
 
 ## Advert Full (object)
-- id: 1 (Integer, required)
-- owner: 1 (Integer, required)
+- id: 1 (number, required)
+- owner: 1 (number, required)
 - created_on: DateTime (string, required)
 - state: This is the state of the car whether new or used (string, required)
 - status: This is the actual car status whether sold or available (string, required)
-- price: 100 (Float, required) 
+- price: 100 (number, required) 
 - manufacturer: This is the manufacturer of the car (string, required)
 - model: This is the model of the car (string, required)
 - body_type: This is the body type of the car whether car, truck, van, etc (string, required)
 
 ## Advert (object)
-- id: 1 (Integer, required)
-- owner: 1 (Integer, required)
+- id: 1 (number, required)
+- owner: 1 (number, required)
 - created_on: DateTime (string, required)
 - state: This is the state of the car whether new or used (string, required)
 - status: This is the actual car status whether sold or available (string, required)
-- price: 100 (Float, required) 
+- price: 100 (number, required) 
 - manufacturer: This is the manufacturer of the car (string, required)
 - model: This is the model of the car (string, required)
 - body_type: This is the body type of the car whether car, truck, van, etc (string, required)
@@ -247,23 +247,23 @@ This is the API(Application Programming Interface) documentation for the AutoMar
 - status: This is the status of the car (string, required)
 
 ## Advert created successfully (object)
-- id: 1 (Integer, required)
-- owner: 1 (Integer, required)
+- id: 1 (number, required)
+- owner: 1 (number, required)
 - created_on: July 3rd 2019, 8:00:00 am (string, required)
 - state: new (string, required)
 - status: available (string, required)
-- price: 100 (Float, required) 
+- price: 100 (number, required) 
 - manufacturer: toyota (string, required)
 - model: camry (string, required)
 - body_type: car (string, required)
 
 ## Advert Marked (object)
-- id: 1 (Integer, required)
-- owner: 1 (Integer, required)
+- id: 1 (number, required)
+- owner: 1 (number, required)
 - created_on: July 3rd 2019, 8:00:00 am (string, required)
 - state: new (string, required)
 - status: sold (string, required)
-- price: 100 (Float, required) 
+- price: 100 (number, required) 
 - manufacturer: toyota (string, required)
 - model: camry (string, required)
 - body_type: car (string, required)
@@ -275,68 +275,71 @@ This is the API(Application Programming Interface) documentation for the AutoMar
 - error: Car Ad was not found
 
 ## Order Full (object)
-- id: 1 (Integer, required)
-- buyer: 1 (Integer, required)
-- car_id: 1 (Integer, required)
-- amount: 300 (Float, required)
+- id: 1 (number, required)
+- buyer: 1 (number, required)
+- car_id: 1 (number, required)
+- amount: 300 (number, required)
 - status: This is the actual order status whether pending, accepted or rejected (string, required) 
 
 ## Order created successfully (object)
-- id: 1 (Integer, required)
-- buyer: 1 (Integer)
-- car_id: 1 (Integer, required)
-- amount: 300 (Float, required)
+- id: 1 (number, required)
+- buyer: 1 (number)
+- car_id: 1 (number, required)
+- amount: 300 (number, required)
 - status: pending (string, required)
 
 ## Order Update (object)
-- price_offered: This is the new price offered (Float, required)
+- price_offered: This is the new price offered (number, required)
 
 ## Order Updated (object)
-- id: 1 (Integer, required)
-- buyer: 1 (Integer)
-- car_id: 1 (Integer, required)
-- amount: 400 (Float, required)
+- id: 1 (number, required)
+- buyer: 1 (number)
+- car_id: 1 (number, required)
+- amount: 400 (number, required)
 - status: pending (string, required)
 
 ## Order NotFound (object)
 - error: Car Ad was not found
 
 ## UnsoldCar (object)
-- id: 1 (Integer, required)
-- owner: 1 (Integer, required)
+- id: 1 (number, required)
+- owner: 1 (number, required)
 - created_on: DateTime (string, required)
 - state: This is the state of the car whether new or used (string, required)
 - status: available (string, required)
-- price: 100 (Float, required) 
+- price: 100 (number, required) 
 - manufacturer: This is the manufacturer of the car (string, required)
 - model: This is the model of the car (string, required)
 - body_type: This is the body type of the car whether car, truck, van, etc (string, required)
 
 ## UnsoldWithinRange (object)
-- min_price: This is the minimum price of the car (Float, required)
-- max_price: This is the maximum price of the car (Float, required)
+- min_price: This is the minimum price of the car (number, required)
+- max_price: This is the maximum price of the car (number, required)
 
 ## State (object)
 - state: This is the state of the car (string, required)
 
+## Status (object)
+- status: This is the status of the car (string, required)
+
 ## UsedUnsoldCar (object)
-- id: 1 (Integer, required)
-- owner: 1 (Integer, required)
+- id: 1 (number, required)
+- owner: 1 (number, required)
 - created_on: DateTime (string, required)
 - state: used (string, required)
 - status: This is the actual car status whether sold or available (string, required)
-- price: 100 (Float, required) 
+- price: 100 (number, required) 
 - manufacturer: This is the manufacturer of the car (string, required)
 - model: This is the model of the car (string, required)
 - body_type: This is the body type of the car whether car, truck, van, etc (string, required)
 
 ## NewUnsoldCar (object)
-- id: 1 (Integer, required)
-- owner: 1 (Integer, required)
+- id: 1 (number, required)
+- owner: 1 (number, required)
 - created_on: DateTime (string, required)
 - state: used (string, required)
 - status: This is the actual car status whether sold or available (string, required)
-- price: 100 (Float, required) 
+- price: 100 (number, required) 
 - manufacturer: This is the manufacturer of the car (string, required)
 - model: This is the model of the car (string, required)
 - body_type: This is the body type of the car whether car, truck, van, etc (string, required)
