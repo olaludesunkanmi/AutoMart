@@ -1,0 +1,342 @@
+FORMAT: 1A
+HOST: https://auto-mart-andela-app.herokuapp.com/api/v1
+
+# AUTO MART API
+
+Auto Mart is an online marketplace for automobiles of diverse makes, model or body type. With
+Auto Mart, users can sell their cars or buy from trusted dealerships or private sellers.
+
+This is the API(Application Programming Interface) documentation for the AutoMart application
+
+# Group User
+
+## User Collection [/auth/signup]
+
+- Attributes (User Create)
+
+### Sign Up a User [POST]
+
+- Request with complete details (application/json)
+
+    - Attributes (User Create)
+
+- Response 201 (application/json)
+
+    - Attributes (array[User signedUp])
+
+
+## Login a User [/auth/login]
+
+- Attributes (User Login)
+
+### Login a User [POST]
+
+- Request with authenticated user (application/json)
+
+    - Attributes (User Login)
+
+- Response 200 (application/json)
+
+    - Attributes (array[User signedUp])
+
+
+# Group Adverts
+
+## Adverts Collection [/car]
+
+### Post a car sale advert [POST]
+
+- Request with complete fields (application/json)
+    - Attributes (Advert Full)
+
+- Response 201 (application/json)
+
+    - Attributes (Advert created successfully)
+
+### Retreive All Posted Adverts [GET]
+
+- Request (application/json)
+
+- Response 200 (application/json)
+
+    - Attributes (array[Advert])
+
+## Update a Car Advert [/car/{id}/status]
+
+- Parameter
+
+    - id: `1` (Integer) - The car ID
+
+### Mark a Posted Car Advert [PATCH]
+
+- Request with mark status fields (application/json)
+    - Attributes (Advert Mark)
+
+- Response 200 (application/json)
+
+    - Attributes (Advert Marked)
+    
+- Response 404 (application/json)
+
+    - Attributes (Advert NotFound)
+    
+
+## Remove a Car Advert [/car/{id}]
+
+- Parameter
+
+    - id: `1` (Integer) - The car ID
+
+### Delete a Car Advert [DELETE]
+
+- Response 200 (application/json)
+
+    - Attributes (Advert Delete)
+    
+- Response 404 (application/json)
+
+    - Attributes (Advert NotFound)
+
+
+# Group Orders
+
+## Orders Collection [/order]
+
+### Make a Purchase Order [POST]
+
+- Request with complete fields (application/json)
+    - Attributes (Order Full)
+
+- Response 201 (application/json)
+
+    - Attributes (Order created successfully)
+
+## Update a Purchase Order [/order/{id}/price]
+
+- Parameter
+
+    - id: `1` (Integer) - The order ID
+
+### Update the Price of Purchase Order [PATCH]
+
+- Request with new price field (application/json)
+    - Attributes (Order Update)
+
+- Response 200 (application/json)
+
+    - Attributes (Order Updated)
+    
+- Response 404 (application/json)
+
+    - Attributes (Order NotFound)
+
+
+# Group Cars
+
+## Retreive a Car [/car/{id}]
+
+- Parameter
+
+    - id: `1` (Integer) - The car ID
+
+### View a Specific Car [GET]
+
+- Request (application/json)
+
+- Response 200 (application/json)
+
+    - Attributes (array[Advert])
+
+## Retreive all Unsold Cars [/car/available]
+
+### View all Unsold Cars  [GET]
+
+- Request (application/json)
+
+    - Attributes (Car Unsold)
+
+- Response 200 (application/json)
+
+    - Attributes (array[UnsoldCar])
+
+
+## Retreive all Unsold Cars Within a Price Range [/car/available/range]
+
+### View all Unsold Cars Within a Price Range  [GET]
+
+- Request (application/json)
+
+    - Attributes (Car UnsoldWithinRange)
+
+- Response 200 (application/json)
+
+    - Attributes (array[UnsoldCarWithinRange])
+
+
+## Retreive all Unsold Cars [/car/available/used]
+
+### View all Used Unsold Cars  [GET]
+
+- Request (application/json)
+
+    - Attributes (Car State)
+
+- Response 200 (application/json)
+
+    - Attributes (array[UsedUnsoldCar])
+
+## Retreive all Unsold Cars [/car/available/new]
+
+### View all New Unsold Cars  [GET]
+
+- Request (application/json)
+
+    - Attributes (Car State)
+
+- Response 200 (application/json)
+
+    - Attributes (array[NewUnsoldCar])
+
+
+# Data Structures
+
+## User Create (object)
+- first_name: John (string, required)
+- last_name: Doe (string, required)
+- email: johndoe@yahoo.com (string, required)
+- password: 1212#4444 (string, required)
+- address: london (string, required)
+- is_admin: false (boolean, required)
+
+
+## User Login (object)
+- email: johndoe@yahoo.com (string, required)
+- password: 1212#4444 (string, required)
+
+
+## User signedUp (object)
+- token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJlbWFpbCI6ImoyazRAeWFob28uY29tIiwiZmlyc3RfbmFtZSI6IkpvaG4iLCJsYXN0X25hbWUiOiJDaGFtcGlvbiIsImFkZHJlc3MiOiJraW5ncyB3YXkgYXZlbnVlIiwiaXNfYWRtaW4iOmZhbHNlfSwiaWF0IjoxNTYxMzE5Nzg5LCJleHAiOjE1NjE0MDYxODl9.iyVawqa0_ZafiT6qtX0Skov5pK-_oStCJ8FPMDilVDY
+- id : 1
+- first_name: John 
+- last_name: Doe
+- email: johndoe@yahoo.com
+
+## Advert Full (object)
+- id: 1 (Integer, required)
+- owner: 1 (Integer, required)
+- created_on: DateTime (string, required)
+- state: This is the state of the car whether new or used (string, required)
+- status: This is the actual car status whether sold or available (string, required)
+- price: 100 (Float, required) 
+- manufacturer: This is the manufacturer of the car (string, required)
+- model: This is the model of the car (string, required)
+- body_type: This is the body type of the car whether car, truck, van, etc (string, required)
+
+## Advert (object)
+- id: 1 (Integer, required)
+- owner: 1 (Integer, required)
+- created_on: DateTime (string, required)
+- state: This is the state of the car whether new or used (string, required)
+- status: This is the actual car status whether sold or available (string, required)
+- price: 100 (Float, required) 
+- manufacturer: This is the manufacturer of the car (string, required)
+- model: This is the model of the car (string, required)
+- body_type: This is the body type of the car whether car, truck, van, etc (string, required)
+
+## Advert Mark (object)
+- status: This is the status of the car (string, required)
+
+## Advert created successfully (object)
+- id: 1 (Integer, required)
+- owner: 1 (Integer, required)
+- created_on: July 3rd 2019, 8:00:00 am (string, required)
+- state: new (string, required)
+- status: available (string, required)
+- price: 100 (Float, required) 
+- manufacturer: toyota (string, required)
+- model: camry (string, required)
+- body_type: car (string, required)
+
+## Advert Marked (object)
+- id: 1 (Integer, required)
+- owner: 1 (Integer, required)
+- created_on: July 3rd 2019, 8:00:00 am (string, required)
+- state: new (string, required)
+- status: sold (string, required)
+- price: 100 (Float, required) 
+- manufacturer: toyota (string, required)
+- model: camry (string, required)
+- body_type: car (string, required)
+
+## Advert Delete (object)
+- message: Car Ad successfully deleted (string, required)
+
+## Advert NotFound (object)
+- error: Car Ad was not found
+
+## Order Full (object)
+- id: 1 (Integer, required)
+- buyer: 1 (Integer, required)
+- car_id: 1 (Integer, required)
+- amount: 300 (Float, required)
+- status: This is the actual order status whether pending, accepted or rejected (string, required) 
+
+## Order created successfully (object)
+- id: 1 (Integer, required)
+- buyer: 1 (Integer)
+- car_id: 1 (Integer, required)
+- amount: 300 (Float, required)
+- status: pending (string, required)
+
+## Order Update (object)
+- price_offered: This is the new price offered (Float, required)
+
+## Order Updated (object)
+- id: 1 (Integer, required)
+- buyer: 1 (Integer)
+- car_id: 1 (Integer, required)
+- amount: 400 (Float, required)
+- status: pending (string, required)
+
+## Order NotFound (object)
+- error: Car Ad was not found
+
+## UnsoldCar (object)
+- id: 1 (Integer, required)
+- owner: 1 (Integer, required)
+- created_on: DateTime (string, required)
+- state: This is the state of the car whether new or used (string, required)
+- status: available (string, required)
+- price: 100 (Float, required) 
+- manufacturer: This is the manufacturer of the car (string, required)
+- model: This is the model of the car (string, required)
+- body_type: This is the body type of the car whether car, truck, van, etc (string, required)
+
+## UnsoldWithinRange (object)
+- min_price: This is the minimum price of the car (Float, required)
+- max_price: This is the maximum price of the car (Float, required)
+
+## State (object)
+- state: This is the state of the car (string, required)
+
+## UsedUnsoldCar (object)
+- id: 1 (Integer, required)
+- owner: 1 (Integer, required)
+- created_on: DateTime (string, required)
+- state: used (string, required)
+- status: This is the actual car status whether sold or available (string, required)
+- price: 100 (Float, required) 
+- manufacturer: This is the manufacturer of the car (string, required)
+- model: This is the model of the car (string, required)
+- body_type: This is the body type of the car whether car, truck, van, etc (string, required)
+
+## NewUnsoldCar (object)
+- id: 1 (Integer, required)
+- owner: 1 (Integer, required)
+- created_on: DateTime (string, required)
+- state: used (string, required)
+- status: This is the actual car status whether sold or available (string, required)
+- price: 100 (Float, required) 
+- manufacturer: This is the manufacturer of the car (string, required)
+- model: This is the model of the car (string, required)
+- body_type: This is the body type of the car whether car, truck, van, etc (string, required)
