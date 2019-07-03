@@ -1,7 +1,7 @@
 # AutoMart
 
 [![Build Status](https://travis-ci.org/olaludesunkanmi/AutoMart.svg?branch=develop)](https://travis-ci.org/olaludesunkanmi/AutoMart)
-[![Coverage Status](https://coveralls.io/repos/github/olaludesunkanmi/AutoMart/badge.svg?branch=ch-deploy-to-heroku-%23166567379)](https://coveralls.io/github/olaludesunkanmi/AutoMart?branch=ch-deploy-to-heroku-%23166567379)
+[![Coverage Status](https://coveralls.io/repos/github/olaludesunkanmi/AutoMart/badge.svg?branch=develop)](https://coveralls.io/github/olaludesunkanmi/AutoMart?branch=develop)
 [![Maintainability](https://api.codeclimate.com/v1/badges/65b647ee1e9958a0937a/maintainability)](https://codeclimate.com/github/olaludesunkanmi/AutoMart/maintainability)
 
 ## Description
@@ -52,3 +52,11 @@ S/N | Verb   | Endpoint         | Description                    |
   13| Patch  | /order/:id/price | Update price of purchase order |
   14| Post   | /car             | Create a car sale ad           |
 
+### Database
+ PostgreSQL
+
+### HEROKU LINK
+https://auto-mart-andela-app.herokuapp.com/
+
+### API Documentation
+https://automart14.docs.apiary.io/
